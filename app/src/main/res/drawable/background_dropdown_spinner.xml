@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/retangulo_redondo_com_borda"/>
+    <item android:drawable="@drawable/ic_drop_down"
+        android:gravity="end|center_vertical" android:right="8dp"/>
+
+</layer-list>

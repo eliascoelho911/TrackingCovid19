@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/dashboard_lista_medidas_estados_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/dashboard_brasil_estados"
+        app:layout_constraintStart_toStartOf="@+id/dashboard_brasil_estados"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ToggleButton
+            android:id="@+id/dashboard_lista_medidas_estados_casos"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/background_botao_lista_de_medidas_estados"
+            android:checked="true"
+            android:enabled="false"
+            android:fontFamily="@font/lato"
+            android:textColor="@color/cor_texto_botao_lista_de_medidas_estados"
+            android:textOff="@string/casos"
+            android:textOn="@string/casos">
+
+        </ToggleButton>
+
+        <ToggleButton
+            android:id="@+id/dashboard_lista_medidas_estados_mortes"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/background_botao_lista_de_medidas_estados"
+            android:fontFamily="@font/lato"
+            android:textColor="@color/cor_texto_botao_lista_de_medidas_estados"
+            android:textOff="@string/mortes"
+            android:textOn="@string/mortes">
+
+        </ToggleButton>
+
+        <ToggleButton
+            android:id="@+id/dashboard_lista_medidas_estados_recuperados"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/background_botao_lista_de_medidas_estados"
+            android:fontFamily="@font/lato"
+            android:textColor="@color/cor_texto_botao_lista_de_medidas_estados"
+            android:textOff="@string/recuperados"
+            android:textOn="@string/recuperados">
+
+        </ToggleButton>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/dashboard_header_estado"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/lato"
+        android:gravity="center"
+        android:paddingTop="8dp"
+        android:text="@string/estado"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/dashboard_brasil_estados"
+        app:layout_constraintStart_toStartOf="@+id/dashboard_brasil_estados"
+        app:layout_constraintTop_toTopOf="@+id/dashboard_referencia_estados" />
+
+    <TextView
+        android:id="@+id/dashboard_referencia_estados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableEnd="@drawable/ic_seta_pra_baixo_dashboard"
+        android:gravity="center"
+        android:paddingTop="8dp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/dashboard_lista_medidas_estados_layout"
+        app:layout_constraintEnd_toStartOf="@+id/dashboard_header_valor"
+        app:layout_constraintStart_toEndOf="@+id/dashboard_header_estado" />
+
+    <TextView
+        android:id="@+id/dashboard_header_valor"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/lato"
+        android:gravity="center"
+        android:paddingTop="8dp"
+        android:text="@string/casos"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/dashboard_brasil_estados"
+        app:layout_constraintEnd_toEndOf="@+id/dashboard_brasil_estados"
+        app:layout_constraintTop_toTopOf="@+id/dashboard_referencia_estados" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dashboard_brasil_estados"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/retangulo_redondo_com_borda"
+        android:overScrollMode="never"
+        android:nestedScrollingEnabled="false"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dashboard_referencia_estados"
+        tools:itemCount="5"
+        tools:listitem="@layout/item_dashboard_estados_brasil">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/dashboard_altera_exibicao_estados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableEnd="@drawable/ic_seta_pra_baixo_dashboard"
+        android:fontFamily="@font/lato"
+        android:gravity="center"
+        android:paddingTop="8dp"
+        android:paddingBottom="24dp"
+        android:text="@string/mostrar_tudo"
+        app:layout_constraintEnd_toEndOf="@+id/dashboard_brasil_estados"
+        app:layout_constraintStart_toStartOf="@+id/dashboard_brasil_estados"
+        app:layout_constraintTop_toBottomOf="@+id/dashboard_brasil_estados" />
+
+    <Spinner
+        android:id="@+id/dashboard_paises_spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_dropdown_spinner"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="@id/dashboard_brasil_estados"
+        app:layout_constraintStart_toStartOf="@id/dashboard_brasil_estados"
+        app:layout_constraintTop_toBottomOf="@+id/dashboard_altera_exibicao_estados"
+        tools:listitem="@layout/item_dashboard_paises_spinner" />
+
+    <TextView
+        android:id="@+id/dashboard_confimados"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/lato"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        tools:text="200000" />
+
+    <TextView
+        android:id="@+id/dashboard_mortes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/lato"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:text="20000" />
+
+    <TextView
+        android:id="@+id/dashboard_recuperados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/lato"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/textView7"
+        app:layout_constraintStart_toStartOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        tools:text="100000" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/casos"
+        app:layout_constraintStart_toStartOf="@+id/dashboard_paises_spinner"
+        app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/recuperados"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dashboard_paises_spinner" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/mortes"
+        app:layout_constraintEnd_toEndOf="@+id/dashboard_paises_spinner"
+        app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+    <View
+        android:id="@+id/dashboard_divisoria_noticias"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/cinza_claro"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@id/dashboard_brasil_estados"
+        app:layout_constraintStart_toStartOf="@id/dashboard_brasil_estados"
+        app:layout_constraintTop_toBottomOf="@id/dashboard_confimados"/>
+
+    <TextView
+        android:id="@+id/dashboard_titulo_noticias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/noticias"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/dashboard_brasil_estados"
+        app:layout_constraintStart_toStartOf="@id/dashboard_brasil_estados"
+        app:layout_constraintTop_toBottomOf="@id/dashboard_divisoria_noticias" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dashboard_noticias"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:nestedScrollingEnabled="false"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="@id/dashboard_brasil_estados"
+        app:layout_constraintStart_toStartOf="@id/dashboard_brasil_estados"
+        app:layout_constraintTop_toBottomOf="@id/dashboard_titulo_noticias"
+        tools:itemCount="10"
+        tools:listitem="@layout/item_noticias" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

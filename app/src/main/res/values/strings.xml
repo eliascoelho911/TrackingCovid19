@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Relatório Covid-19</string>
+    <string name="mostrar_tudo">Mostrar tudo</string>
+    <string name="esconder">Esconder</string>
+    <string name="mortes">Mortes</string>
+    <string name="recuperados">Recuperados</string>
+    <string name="casos">Casos</string>
+    <string name="erro_conexao_com_servidor_falhou">Não foi possível se conectar ao servidor</string>
+    <string name="estado">Estado</string>
+    <string name="noticias">Últimas Notícias</string>
+    <string name="imagem_da_noticia">Imagem da notícia</string>
+    <string name="bandeira_do_pais">Bandeira do País</string>
+</resources>
